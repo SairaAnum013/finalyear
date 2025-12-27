@@ -25,7 +25,7 @@ const Signup = () => {
 
   // Redirect if already logged in
   if (user) {
-    navigate("/detect");
+    navigate("/confirm-account");
     return null;
   }
 
@@ -66,7 +66,7 @@ const Signup = () => {
           title: t("success"),
           description: t("accountCreated"),
         });
-        navigate("/detect");
+        navigate("/confirm-account");
       }
     } catch (error) {
       toast({
