@@ -23,10 +23,30 @@ const Signup = () => {
   const { user } = useAuth();
   const { t } = useLanguage();
 
-  // Redirect if already logged in
+  // If user is already logged in, show an error message (no redirect)
+  useEffect(() => {
+    if (user) {
+      toast({
+        title: t("error") || "Error",
+        description: t("alreadyLoggedIn") || "You are already logged in.",
+        variant: "destructive",
+      });
+    }
+  }, [user, toast, t]);
+
   if (user) {
-    navigate("/confirm-account");
-    return null;
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-muted/30">
+        <div className="container max-w-md py-8 px-4">
+          <Card className="p-6 text-center">
+            <h1 className="mb-2 text-2xl font-bold">{t("alreadyLoggedInTitle") || "Already Logged In"}</h1>
+            <p className="text-sm text-muted-foreground">
+              {t("alreadyLoggedInMessage") || "You are already logged in. Please sign out if you want to create a new account."}
+            </p>
+          </Card>
+        </div>
+      </div>
+    );
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
