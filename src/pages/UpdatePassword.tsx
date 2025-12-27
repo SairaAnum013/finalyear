@@ -115,7 +115,7 @@ const UpdatePassword = () => {
           title: t("success"),
           description: t("passwordUpdatedSuccess"),
         });
-        navigate("/login");
+        navigate("/password-updated");
       }
     } catch (err) {
       toast({

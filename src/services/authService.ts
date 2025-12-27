@@ -23,7 +23,7 @@ export const authService = {
    */
   async signup(email: string, password: string, name: string): Promise<AuthResponse> {
     try {
-      const redirectUrl = `${window.location.origin}/detect`;
+      const redirectUrl = `${window.location.origin}/confirm-account`;
       
       const { data, error } = await supabase.auth.signUp({
         email,
