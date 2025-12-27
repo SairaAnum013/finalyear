@@ -27,6 +27,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
 
   const hideLanguageSelector = location.pathname === "/confirm-account" || location.pathname === "/password-updated";
+  const hideUserNav = location.pathname === "/confirm-account" || location.pathname === "/password-updated";
 
   const handleLogout = async () => {
     await signOut();
@@ -66,8 +67,8 @@ export const Header = () => {
             </DropdownMenu>
           )}
 
-          {/* User Navigation - Only show for logged-in users */}
-          {user && (
+          {/* User Navigation - Only show for logged-in users (hidden on confirmation pages) */}
+          {user && !hideUserNav && (
             isMobile ? (
               <Sheet open={open} onOpenChange={setOpen}>
                 <SheetTrigger asChild>
