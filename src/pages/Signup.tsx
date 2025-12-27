@@ -66,7 +66,7 @@ const Signup = () => {
           title: t("success"),
           description: t("accountCreated"),
         });
-        navigate("/confirm-account");
+        navigate("/login");
       }
     } catch (error) {
       toast({
