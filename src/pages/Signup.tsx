@@ -39,10 +39,7 @@ const Signup = () => {
       <div className="flex min-h-screen items-center justify-center bg-muted/30">
         <div className="container max-w-md py-8 px-4">
           <Card className="p-6 text-center">
-            <h1 className="mb-2 text-2xl font-bold">{t("alreadyLoggedInTitle") || "Already Logged In"}</h1>
-            <p className="text-sm text-muted-foreground">
-              {t("alreadyLoggedInMessage") || "You are already logged in. Please sign out if you want to create a new account."}
-            </p>
+            <p className="text-lg font-semibold">Already logged In</p>
           </Card>
         </div>
       </div>
